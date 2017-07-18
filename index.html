@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Javascript World Map</title>
+        <link rel="stylesheet" href="css/demo.css" type="text/css" media="screen">
+        <link rel="stylesheet" href="css/demo-print.css" type="text/css" media="print">
+
+        <script src="js/raphael_2.0.2.js" type="text/javascript"></script>
+        <script src="js/world_1000.js" type="text/javascript"></script>
+
+        <script type="text/javascript">        
+            window.onload = function () {
+				var current = null;
+				var map = {};
+				var m = {};				
+				var attr = {
+					fill: "#444",
+					stroke: "#888",
+					"stroke-width": .5,
+					"stroke-linejoin": "round"
+				};				
+				//var map = {};
+				var width = document.getElementById('holder_1000').style.width;
+				var height = document.getElementById('holder_1000').style.height * 0.99;
+
+				var svgHeight = 400;
+			    var svgWidth = 1000;
+
+				var R = Raphael("holder_1000", "100%", "100%");
+				
+				R.setViewBox(0, 0, svgWidth, svgHeight, true);
+
+				render_map(R,map,attr);		
+				for (var state in map) {							        
+    	            //map[state].color = Raphael.getColor();
+	                (function (st, state) {
+						st[0].style.cursor = "pointer";
+						st[0].onmouseover = function () {
+							//current && map[current].animate({fill: "#333", stroke: "#666"}, 300);
+							//st.animate({fill: "#ccc", stroke: "#ccc"}, 300);
+							st.animate({opacity:0.5}, 300);
+							//R.safari();
+							current = state;
+						};
+						st[0].onmouseout = function () {
+							st.animate({opacity:1}, 300);
+							//st.animate({fill: "#333", stroke: "#888"}, 300);
+							//R.safari();
+						};
+						
+						st[0].onclick = function () {
+							alert(state);
+						};
+					})(map[state], state);
+				}; // end for
+				
+				
+
+				function lon2x(lon) {
+					var xfactor = 2.752;
+					var xoffset = 473.75;
+					var x = (lon * xfactor) + xoffset;
+					return x;
+				}
+				function lat2y(lat) {
+					var yfactor = -2.753;
+					var yoffset = 231;
+					var y = (lat * yfactor) + yoffset;
+					return y;
+				}
+				var stamyCountries=[map.AT, map.BE, map.CU,map.CZ, map.EE, map.ES, map.GR, map.IT, map.FR,map.HU, map.IE, map.NL,map.PL, map.PT, map.TR, map.GB, map.AR, map.UY];// Monaco, San Marino, St mauritius
+
+				var ginaCountries=[map.GR,map.IT, map.TR, map.CY, map.RO, map.HU, map.PT, map.ES, map.BE,map.NL, map.FR, map.DE, map.CU, map.CA, map.GE, map.CZ, map.GB, map.IE, map.LU, map.NO, map.DK, map.CH, map.AT, map.SK, map.SI, map.IS, map.RS]; //+San Marino, Batican and Monaco
+
+				var gogoCountries=[map.IS, map.US, map.FR, map.NL,map.BE, map.AR, map.BR, map.TR, map.BO, map.CL, map.PE,map.GT, map.CH, map.CU, map.GE, map.IT, map.ES, map.PT, map.GB, map.GR, map.DE, map.MX]; //+Malta, Monaco, San Marino, St mauritius
+
+				var stamyColour="Thistle";
+				var ginaColour="MediumAquaMarine";
+				var gogoColour="lightskyblue";
+
+				function colourCountries(countryList, colour) {
+					for (var state in map) {
+					map[state].attr({fill: "#444"});	
+					}
+					for (var i in countryList){
+						//countryList[i].color = colour;
+						// console.log(stamyCountries[i]);
+						countryList[i].attr({fill: colour})
+					}
+					
+				}
+
+				document.getElementById("StamuButton").onclick = function() {colourCountries(stamyCountries,stamyColour)};
+				document.getElementById("GinaButton").onclick = function() {colourCountries(ginaCountries,ginaColour)};
+				document.getElementById("GogoButton").onclick = function() {colourCountries(gogoCountries,gogoColour)};
+
+				
+			};
+
+        </script>
+    </head>
+    <body>
+        <div id="holder_1000" style="position:relative;">
+        </div>
+
+
+			<div id="button-list" class="">
+
+              <div id="GinaButton" class="friendsButton">
+                <img class="img-circle" src="me.png">
+                <!-- <br class="hidden-xs">  Gina -->
+              </div>
+
+              <div id="StamuButton" class="friendsButton" ">
+                  <img class="img-circle" src="stamu.png" >
+              </div>
+
+              <div id="GogoButton" class="friendsButton">
+               <img class="img-circle" src="gogo.jpg">
+              </div>
+                
+            </div>
+        
+</body>
+</html>

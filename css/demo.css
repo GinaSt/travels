@@ -1,0 +1,61 @@
+body {
+    background: #333;
+    color: #fff;
+    font: 300 100.1% "Helvetica Neue", Helvetica, "Arial Unicode MS", Arial, sans-serif;
+}
+
+#holder_570 {
+    height: 250px;
+    width: 570px;
+    margin: 2em auto;
+}
+#holder_1000 {
+    margin: 0 auto;
+    height: 90%;
+    width: 90%;
+    position: absolute;
+}
+a {
+	color: #666;
+}
+p { text-align: center; }
+
+#button-list{
+	position: relative;
+	top: -200px;
+	width:100px;
+}
+.img-circle
+{
+    font-family: 'Lora', serif;
+
+    width: 60px;
+    height: 60px;
+    margin: 3px;
+
+    text-align: center;
+
+    color: gray;
+    border: 1px solid gray;
+    border-radius: 50%;
+}
+
+.img-circle:hover
+{
+    border: 3px solid gray;
+}
+
+.img-circle:focus
+{
+    border: 3px solid lightblue;
+}
+
+.img-circle::selection
+{
+    border: 3px solid red;
+}
+
+.img-circle:selected
+{
+    border: 3px solid gray;
+}
