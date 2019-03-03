@@ -39,7 +39,7 @@
 						st[0].onmouseover = function () {
 							//current && map[current].animate({fill: "#333", stroke: "#666"}, 300);
 							//st.animate({fill: "#ccc", stroke: "#ccc"}, 300);
-							st.animate({opacity:0.5}, 300);
+							st.animate({opacity:0.3}, 300);
 							//R.safari();
 							current = state;
 						};
@@ -69,12 +69,13 @@
 					var y = (lat * yfactor) + yoffset;
 					return y;
 				}
-				var stamyCountries=[map.AT, map.BE, map.CU,map.CZ, map.EE, map.ES, map.GR, map.IT, map.FR,map.HU, map.IE, map.NL,map.PL, map.PT, map.TR, map.GB, map.AR, map.UY, map.RO, map.DK];// Monaco, San Marino, St mauritius
+				var stamyCountries=[map.AT, map.BE, map.CU,map.CZ, map.EE, map.ES, map.GR, map.IT, map.FR,map.HU, map.IE, map.NL,map.PL, map.PT, map.TR, map.GB, map.AR, map.UY, map.RO, map.DK];
 
-				var ginaCountries=[map.GR,map.IT, map.TR, map.CY, map.RO, map.HU, map.PT, map.ES, map.BE,map.NL, map.FR, map.DE, map.CU, map.CA, map.GE, map.CZ, map.GB, map.IE, map.LU, map.NO, map.DK, map.CH, map.AT, map.SK, map.SI, map.IS, map.RS]; //+San Marino, Batican and Monaco
+				var ginaCountries=[map.GR,map.IT, map.TR, map.CY, map.RO, map.HU, map.PT, map.ES, map.BE,map.NL, map.FR, map.DE, map.CU, map.CA, map.GE, map.CZ, map.GB, map.IE, map.LU, map.NO, map.DK, map.CH, map.AT, map.SK, map.SI, map.IS, map.RS, map.PL]; //+San Marino, Malta, Batican and Monaco
 
-				var gogoCountries=[map.IS, map.US, map.FR, map.NL,map.BE, map.AR, map.BR, map.TR, map.BO, map.CL, map.PE,map.GT, map.CH, map.CU, map.GE, map.IT, map.ES, map.PT, map.GB, map.GR, map.DE, map.MX]; //+Malta, Monaco, San Marino, St mauritius
+				var gogoCountries=[map.IS, map.US, map.FR, map.NL,map.BE, map.AR, map.BR, map.TR, map.BO, map.CL, map.PE,map.GT, map.CH, map.CU, map.GE, map.IT, map.ES, map.PT, map.GB, map.GR, map.DE, map.MX]; 
 
+				// Choose colour for each friend
 				var stamyColour="Thistle";
 				var ginaColour="MediumAquaMarine";
 				var gogoColour="lightskyblue";
@@ -121,6 +122,8 @@
               </div>
                 
             </div>
+
+        <div class="mapouter"><div class="gmap_canvas"><iframe width="842" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.jetzt-drucken-lassen.de">https://www.jetzt-drucken-lassen.de/</a></div><style>.mapouter{text-align:right;height:500px;width:842px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:842px;}</style>Google Maps by <a href="https://www.embedgooglemap.net" rel="nofollow" target="_blank">Embedgooglemap.net</a></div>
         
 </body>
 </html>
