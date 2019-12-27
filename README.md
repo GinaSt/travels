@@ -8,5 +8,5 @@ Example:
 
 ![alt text](https://raw.githubusercontent.com/GinaSt/travels/master/example.png)
 
-It was created as an attempt to learn raphael.js and how to embed svg maps in html.
+It was created as an attempt to learn [raphael.js](https://dmitrybaranovskiy.github.io/raphael/) and how to embed svg maps in html.
 
